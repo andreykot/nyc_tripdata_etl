@@ -89,19 +89,5 @@ def split_nyc_tripdata(
     query_job.result()
 
 
-def __test():
-    config = configparser.ConfigParser()
-    config.read('/Users/akot/Study/iw/carto/config.ini')
-    table = config['DEFAULT']['BIGQUERY_NYC_TLC_TABLE']
-    bucket_name = config['DEFAULT']['CLOUD_STORAGE']
-    files_dir = "../output_data"
-
-    upload_files_to_bigquery(
-        credentials_file=config['DEFAULT']['GOOGLE_SERVICE_ACCOUNT_KEY'],
-        table_name=table,
-        cloud_files=['gs://carto_akot_tripdata/upload_2022-08-02/yellow_tripdata_2015-01_00.parquet']
-    )
-
-
 if __name__ == '__main__':
-    __test()
+    pass

@@ -27,7 +27,9 @@ For this the "partial-expand" logic is used.
 This logic was introduced in Airflow v. 2.3 and it was interesting for me to try this somewhere.
 Pros: we are generating tasks dynamically for some number of files, this tasks can be triggered in parallel by Airflow. 
 Cons: we are not able to submit these by SparkSubmitOperator.
-As a result, this approach is not optimal. It is better to submit spark jobs in Spark cluster.
+As result, this approach can be optimal only with a big number of workers which are available for Airflow (for CeleryExecutor),
+but extremely slow on local machine. I left this approach in the code, but it is better to submit spark jobs to Spark cluster or 
+prepare parquet files not for each csv file.
 
 4. *upload_files_to_cloud_storage*
 

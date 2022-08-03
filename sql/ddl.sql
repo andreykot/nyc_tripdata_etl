@@ -23,10 +23,8 @@ create or replace table carto-task.nyc_tlc_akot.tripdata (
 
 create or replace table carto-task.nyc_tlc_akot.tripdata_geom(
   id STRING,
-  pickup_longitude FLOAT64,
-  pickup_latitude FLOAT64,
-  dropoff_longitude FLOAT64,
-  dropoff_latitude FLOAT64
+  pickup_point GEOGRAPHY
+  dropoff_point GEOGRAPHY
   uploaded TIMESTAMP
 );
 

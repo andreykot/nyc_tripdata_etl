@@ -13,7 +13,8 @@ def download_files_from_public_gs_bucket(
         max_files: (int, None) = None
 ):
     if not os.path.exists(destination_folder):
-        raise ValueError("Destination folder doesn't exist.")
+        os.makedirs(destination_folder)
+        logging.info(f"Folder {destination_folder} was created")
 
     client = storage.Client.create_anonymous_client()
     bucket = client.bucket(bucket_name)
@@ -46,8 +47,4 @@ def download(client, blob, destination_folder, downloaded):
 
 
 if __name__ == '__main__':
-    # os.makedirs('./testupload')
-    download_files_from_public_gs_bucket(
-        bucket_name='kottestbucket',
-        destination_folder='./testupload'
-    )
+    pass

@@ -97,6 +97,10 @@ def clean(df: DataFrame) -> DataFrame:
 
 
 def main(csv_file, is_head_file, output_dir, timestamp: datetime):
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        logging.info(f"Folder {output_dir} was created")
+
     spark = SparkSession.builder.getOrCreate()
     df = (spark
           .read
