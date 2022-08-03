@@ -77,7 +77,11 @@ def replace_store_and_fwd_flag_by_bool(df: DataFrame) -> DataFrame:
 
 
 def replace_invalid_location_values(df: DataFrame) -> DataFrame:
-    location_cols = [item[0] for item in df.dtypes if item[1].endswith('longitude') or item[1].endswith('latitude')]
+    location_cols = [
+        colname
+        for colname, coltype in df.dtypes
+        if colname.endswith('longitude') or colname.endswith('latitude')
+    ]
     for c in location_cols:
         df = (df
               .withColumn(c,
