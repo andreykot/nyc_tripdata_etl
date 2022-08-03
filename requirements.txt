@@ -1,0 +1,3 @@
+pyspark==3.3.0
+# Airflow should be installed with constraints for your python version (python 3.9.9 was used)
+# apache-airflow[google]==2.3.3
